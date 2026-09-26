@@ -1,0 +1,39 @@
+## Build & Output Directories
+bin/
+obj/
+out/
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio & IDE files
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.userprefs
+
+## User-specific & Local Environment Settings
+appsettings.Development.json
+appsettings.Local.json
+*.local.json
+
+## Publish & Package Outputs
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Logs & Crash Dumps
+*.log
+*.sqlite
+*.db
+*.ldf
+*.mdf
+
+## Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,14 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace vms_be.Models
+{
+    public class Users
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public required string UserName { get; set; }
+        public required string Password { get; set; }
+    }
+}
