@@ -11,7 +11,7 @@ using vms_be;
 namespace vms_be.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260926104055_InitVehicleManagementSystem")]
+    [Migration("20260927044042_InitVehicleManagementSystem")]
     partial class InitVehicleManagementSystem
     {
         /// <inheritdoc />
@@ -152,7 +152,7 @@ namespace vms_be.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ManufacturerId")
+                    b.Property<int?>("ManufacturerId")
                         .HasColumnType("int");
 
                     b.Property<string>("OtherManufacturerName")
@@ -179,9 +179,7 @@ namespace vms_be.Migrations
                 {
                     b.HasOne("vms_be.Models.Manufacturer", "Manufacturer")
                         .WithMany()
-                        .HasForeignKey("ManufacturerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ManufacturerId");
 
                     b.Navigation("Manufacturer");
                 });

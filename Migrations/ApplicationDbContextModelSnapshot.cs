@@ -149,7 +149,7 @@ namespace vms_be.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ManufacturerId")
+                    b.Property<int?>("ManufacturerId")
                         .HasColumnType("int");
 
                     b.Property<string>("OtherManufacturerName")
@@ -176,9 +176,7 @@ namespace vms_be.Migrations
                 {
                     b.HasOne("vms_be.Models.Manufacturer", "Manufacturer")
                         .WithMany()
-                        .HasForeignKey("ManufacturerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ManufacturerId");
 
                     b.Navigation("Manufacturer");
                 });

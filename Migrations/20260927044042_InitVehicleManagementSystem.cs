@@ -61,7 +61,7 @@ namespace vms_be.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ManufacturerId = table.Column<int>(type: "int", nullable: false),
+                    ManufacturerId = table.Column<int>(type: "int", nullable: true),
                     OtherManufacturerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     YearOfManufacturer = table.Column<int>(type: "int", nullable: false),
                     Weight = table.Column<double>(type: "float", nullable: false)
@@ -73,8 +73,7 @@ namespace vms_be.Migrations
                         name: "FK_VehicleDetails_Manufacturers_ManufacturerId",
                         column: x => x.ManufacturerId,
                         principalTable: "Manufacturers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(

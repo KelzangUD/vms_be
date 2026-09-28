@@ -12,7 +12,7 @@ namespace vms_be.Models
         [Required]
         public required string OwnerName { get; set; }
 
-        public required int ManufacturerId { get; set; }
+        public int? ManufacturerId { get; set; }
 
         [ForeignKey("ManufacturerId")]
         public Manufacturer? Manufacturer { get; set; }
