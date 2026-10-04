@@ -119,6 +119,7 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IVehiclesService, VehiclesService>();
 builder.Services.AddScoped<ICategoriesServices, CategoriesService>();
+builder.Services.AddScoped<IManufacturersService, ManufacturersService>();
 
 
 // Build
@@ -134,7 +135,10 @@ if (app.Environment.IsDevelopment())
 
 
 // Middleware
-app.UseHttpsRedirection();
+if (!app.Environment.IsEnvironment("Testing"))
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseCors("CorsPolicy");
 
@@ -148,3 +152,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// letting WebApplicationFactory<Program> see the generated Program class
+public partial class Program { }

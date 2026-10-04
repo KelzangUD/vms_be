@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using vms_be.Dtos;
@@ -24,7 +25,8 @@ namespace vms_be.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryResponseDto>>> GetAll()
         {
-            var categories = await _categoriesService.GetAll();
+            var result = await _categoriesService.GetAll();
+            var categories = result.Value ?? (result.Result as OkObjectResult)?.Value;
             return Ok(new {  message = "Success", data = categories });
         }
 

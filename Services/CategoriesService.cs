@@ -24,6 +24,7 @@ namespace vms_be.Services
                 IconName = c.IconName,
             }).ToListAsync();
 
+
             return categories;
         }
 
